@@ -4,15 +4,13 @@ import { MediaBlockType, MediaType } from "types";
 
 export function embedMediaAsCodeBlock(editor: Editor): void {
 	try {
-		let filePath = editor.getSelection();
+		const filePath = editor.getSelection();
 		if (!filePath) {
 			new Notice("File path not provided");
 			return;
 		}
 
-		filePath = filePath.replace("file:///", "");
-
-		let embedType = determineEmbedType(filePath);
+		const embedType = determineEmbedType(filePath);
 
 		let codeBlock = `\`\`\`media
 path: ${filePath}
@@ -61,9 +59,6 @@ export function generateMediaView(
 	try {
 		let filePath: string = mediainfo.path;
 
-		const port: number = settings.port || DEFAULT_SETTINGS.port;
-		const baselink: string = settings.baselink || DEFAULT_SETTINGS.baselink;
-
 		if (!filePath) {
 			new Notice("File path not provided");
 			return "";
@@ -78,15 +73,15 @@ export function generateMediaView(
 			return "";
 		}
 
-		let url: string;
-		if (filePath.match(/^https?:\/\//)) {
-			url = filePath;
-		} else {
-			const encodedPath = encodeURIComponent(filePath);
-			url = `${baselink}:${port}/?q=${encodedPath}`;
-		}
+		const url = filePath;
+		// if (filePath.match(/^https?:\/\//)) {
+		//  url = filepath;
+		// } else {
+		// 	const encodedPath = encodeURIComponent(filePath);
+		// 	url = `${baselink}:${port}/?q=${encodedPath}`;
+		// }
 
-		let embedType: MediaType =
+		const embedType: MediaType =
 			mediainfo.type || determineEmbedType(filePath);
 
 		const width = mediainfo.width ?? 640;
