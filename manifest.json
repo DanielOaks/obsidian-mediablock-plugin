@@ -1,7 +1,7 @@
 {
 	"id": "mediablock",
 	"name": "Mediablock",
-	"version": "0.0.1",
+	"version": "0.0.3",
 	"minAppVersion": "0.12.0",
 	"description": "Embed videos and images in your notes.",
 	"author": "DanielOaks",
