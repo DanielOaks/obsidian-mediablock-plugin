@@ -89,12 +89,12 @@ export function generateMediaView(
 
 		if (embedType === "video") {
 			return `<video width="${width}" height="${height}" controls>
-    <source src="${url}" type="video/mp4">
+    <source src="${url}">
     Your browser does not support the video tag.
 </video>`;
 		} else if (embedType === "audio") {
 			return `<audio controls>
-    <source src="${url}" type="audio/mpeg">
+    <source src="${url}">
     Your browser does not support the audio tag.
 </audio>`;
 		} else {
