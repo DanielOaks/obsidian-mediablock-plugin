@@ -6,8 +6,8 @@ It's a fork of the more useful [Local Media Embedder plugin](https://github.com/
 
 
 ## Features
-- Embed local images, videos, and audio files directly into your notes.
-- Supports various media formats (e.g. JPG, PNG, MP4, MP3).
+- Embed videos and audio files directly into your notes.
+- Supports various media formats (e.g. MP4, MP3).
 - Simple and intuitive interface for embedding media.
 - Lightweight and efficient, ensuring smooth performance.
 
@@ -17,7 +17,7 @@ The plugin is not yet available in the Obsidian Community Plugins gallery. You c
 
 ### Manual installation
 1. Download the plugin from github released.
-2. Extract the contents of the zip file to your Obsidian plugins  directory: `E:/..../yourVault/.obsidian/plugins/`.
+2. Extract the contents of the zip file to your Obsidian plugins directory: `E:/..../yourVault/.obsidian/plugins/`.
 3. Enable the plugin in Obsidian by navigating to `Settings` > `Community plugins` > `Installed plugins` and toggling the Local Media Embedder plugin.
 
 ### Using BRAT
@@ -25,10 +25,10 @@ Add the current  to BRAT Plugin it will automatically download and install the p
 
 
 ## Usage
-Now you can use code block to embed media files instead of using tags
+Use a code block to embed media files:
 ```markdown
  ```media
-path: F:\Tutorial Videos\AI\deep learning\01.But what is a neural network- - Chapter 1, Deep learning.mp4
+path: https://example.com/01.Butwhatisaneuralnetwork.mp4
 type: video
 width: 640
 height: 360
