@@ -32,6 +32,7 @@ export class MediaBlockProcessor {
 
 		return {
 			path: parsed.path,
+			poster: parsed.poster,
 			type: parsed.type as MediaType,
 			width: parsed.width,
 			height: parsed.height,

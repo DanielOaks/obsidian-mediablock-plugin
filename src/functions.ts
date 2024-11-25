@@ -88,7 +88,7 @@ export function generateMediaView(
 		const height = mediainfo.height ?? 360;
 
 		if (embedType === "video") {
-			return `<video width="${width}" height="${height}" controls>
+			return `<video width="${width}" height="${height}" ${mediainfo.poster ? `poster="${mediainfo.poster}"` : ""} controls>
     <source src="${url}">
     Your browser does not support the video tag.
 </video>`;
