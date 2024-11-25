@@ -52,5 +52,6 @@ export default class EmbedMediaPlugin extends Plugin {
 	}
 	async unload() {
 		await this.saveSettings();
+		super.unload();
 	}
 }
