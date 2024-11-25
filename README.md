@@ -29,6 +29,7 @@ Use a code block to embed media files:
 ```markdown
  ```media
 path: https://example.com/01.Butwhatisaneuralnetwork.mp4
+poster: https://example.com/01.Butwhatisaneuralnetwork-poster.jpg
 type: video
 width: 640
 height: 360
