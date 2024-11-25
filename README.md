@@ -1,12 +1,12 @@
-# Media Block Plugin
+# Mediablock Plugin
 
-The Media Block plugin for Obsidian lets you to embed media files (videos, audio, etc) into your notes.
+The Mediablock plugin for Obsidian lets you to embed external videos, audio, and webpages into your notes.
 
 It's a fork of the more useful [Local Media Embedder plugin](https://github.com/seyf1elislam/obsidian-LocalMediaEmbedder-plugin), made by [seyf1elislam](https://github.com/seyf1elislam).
 
 
 ## Features
-- Embed videos and audio files directly into your notes.
+- Embed external videos, audio, and webpages directly into your notes.
 - Supports various media formats (e.g. MP4, MP3).
 - Simple and intuitive interface for embedding media.
 - Lightweight and efficient, ensuring smooth performance.
