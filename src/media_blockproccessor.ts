@@ -17,9 +17,9 @@ export class MediaBlockProcessor {
 		try {
 			const data: MediaBlockType = this.parseMediaInfo(source);
 			// const type = data.type ? (data.type as MediaType) : "auto";
-			el.innerHTML = generateMediaView(data, this.settings);
+			generateMediaView(el, data, this.settings);
 		} catch (error) {
-			el.createEl("p", { text: `Error parsing YAML: ${error.message}` });
+			el.createEl("p", { cls: 'mediablock-error', text: `Error parsing YAML: ${error.message}` });
 		}
 	}
 

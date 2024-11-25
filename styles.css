@@ -1,0 +1,5 @@
+.mediablock-error {
+  padding: 1em 0.8em;
+  border: solid 1px var(--background-modifier-error);
+  border-radius: 0.5em;
+}

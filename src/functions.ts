@@ -53,56 +53,49 @@ export function onEditorMenu(
 	return;
 }
 export function generateMediaView(
+	el: HTMLElement,
 	mediainfo: MediaBlockType,
 	settings: typeof DEFAULT_SETTINGS = DEFAULT_SETTINGS
-): string {
+): void {
 	try {
-		let filePath: string = mediainfo.path;
+		const url: string = mediainfo.path;
 
-		if (!filePath) {
+		if (!url) {
 			new Notice("File path not provided");
-			return "";
+			el.createEl("p", { cls: 'mediablock-error', text: `File path not provided` });
+			return
 		}
 
-		if (filePath.startsWith("file:///"))
-			filePath = filePath.replace("file:///", "");
-		filePath = decodeURIComponent(filePath);
-
-		if (!isValidPath(filePath)) {
-			new Notice("The provided file path or link is not valid.");
-			return "";
+		if (!isValidPath(url)) {
+			new Notice("The provided file path or link is not valid");
+			el.createEl("p", { cls: 'mediablock-error', text: `The provided file path or link is not valid` });
+			return;
 		}
-
-		const url = filePath;
-		// if (filePath.match(/^https?:\/\//)) {
-		//  url = filepath;
-		// } else {
-		// 	const encodedPath = encodeURIComponent(filePath);
-		// 	url = `${baselink}:${port}/?q=${encodedPath}`;
-		// }
 
 		const embedType: MediaType =
-			mediainfo.type || determineEmbedType(filePath);
+			mediainfo.type || determineEmbedType(url);
 
 		const width = mediainfo.width ?? 640;
 		const height = mediainfo.height ?? 360;
 
 		if (embedType === "video") {
-			return `<video width="${width}" height="${height}" ${mediainfo.poster ? `poster="${mediainfo.poster}"` : ""} controls>
-    <source src="${url}">
-    Your browser does not support the video tag.
-</video>`;
+			const video = el.createEl("video", { attr: { width, height, controls: '', poster: mediainfo.poster || null }})
+			video.innerText = "Your browser does not support the video tag."
+			video.createEl("source", { attr: { src: url }})
+			return;
 		} else if (embedType === "audio") {
-			return `<audio controls>
-    <source src="${url}">
-    Your browser does not support the audio tag.
-</audio>`;
+			const audio = el.createEl("audio", { attr: { controls: '' }})
+			audio.innerText = "Your browser does not support the audio tag."
+			audio.createEl("source", { attr: { src: url }})
+			return;
 		} else {
-			return `<iframe src="${url}" width="${width}" height="${height}" frameborder="0" allowfullscreen></iframe>`;
+			el.createEl("iframe", { attr: { src: url, width, height, frameborder: "0", allowfullscreen: "" }})
+			return;
 		}
 	} catch (error) {
 		console.log("Error:", error);
-		return "";
+		el.createEl("p", { cls: 'mediablock-error', text: `Could not create mediablock embed: ${error}` });
+		return;
 	}
 }
 
