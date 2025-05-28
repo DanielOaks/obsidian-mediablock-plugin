@@ -33,7 +33,22 @@ poster: https://example.com/01.Butwhatisaneuralnetwork-poster.jpg
 type: video
 width: 640
 height: 360
+```
 
+You can also embed subtitles like this:
+```markdown
+ ```media
+path: https://example.com/01.Butwhatisaneuralnetwork.mp4
+poster: https://example.com/01.Butwhatisaneuralnetwork-poster.jpg
+type: video
+width: 640
+height: 360
+tracks:
+  -
+    label: English
+    kind: subtitles
+    srclang: en
+    src: https://example.com/01.Butwhatisaneuralnetwork.en.vtt
 ```
 
 ## Acknowledgements

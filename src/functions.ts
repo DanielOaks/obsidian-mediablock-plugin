@@ -79,9 +79,20 @@ export function generateMediaView(
 		const height = mediainfo.height ?? 360;
 
 		if (embedType === "video") {
-			const video = el.createEl("video", { attr: { width, height, controls: '', poster: mediainfo.poster || null }})
+			const video = el.createEl("video", { attr: { width, height, controls: '', poster: mediainfo.poster || null, crossorigin: 'anonymous' }})
 			video.innerText = "Your browser does not support the video tag."
 			video.createEl("source", { attr: { src: url }})
+			mediainfo.tracks?.forEach(trinfo => {
+				const track = video.createEl("track", { attr: {
+					label: trinfo.label,
+					kind: trinfo.kind,
+					srclang: trinfo.srclang || '',
+					src: trinfo.src
+				}})
+				if (trinfo.default || mediainfo.tracks?.length === 1) {
+					track.setAttr("default", "")
+				}
+			});
 			return;
 		} else if (embedType === "audio") {
 			const audio = el.createEl("audio", { attr: { controls: '' }})

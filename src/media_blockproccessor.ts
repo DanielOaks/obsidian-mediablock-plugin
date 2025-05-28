@@ -36,6 +36,7 @@ export class MediaBlockProcessor {
 			type: parsed.type as MediaType,
 			width: parsed.width,
 			height: parsed.height,
+			tracks: parsed.tracks,
 		};
 	}
 }
