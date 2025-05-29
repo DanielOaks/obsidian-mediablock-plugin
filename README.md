@@ -4,6 +4,8 @@ The Mediablock plugin for Obsidian lets you to embed external videos, audio, and
 
 It's a fork of the more useful [Local Media Embedder plugin](https://github.com/seyf1elislam/obsidian-LocalMediaEmbedder-plugin), made by [seyf1elislam](https://github.com/seyf1elislam).
 
+What differentiates this fork from seyf1elislam's one? Well, this one can't embed local files (those inside your vault). It's mostly useful when used alongside another plugin like [this one which lets you upload files to minio](https://github.com/DanielOaks/obsidian-minio-uploader-plugin/). But this one can be used on mobile devices! (I mostly use Obsidian on the go, which is why I made this fork).
+
 
 ## Features
 - Embed external videos, audio, and webpages directly into your notes.
